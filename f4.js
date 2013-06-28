@@ -1,0 +1,451 @@
+loadedInterfaceName = "CylinderLight Flavin4";
+interfaceOrientation = "landscape";
+infoText = "8 Point interface for CylinderLight Flavin mode";
+
+pages = [[
+
+//debug
+{
+    "name" : "debugSlider",
+    "type" : "Slider",
+	"bounds": [0, .7, .1, .15],
+	"startingValue": 0,
+    "color": "#F010C3",
+    "stroke": "#F010C3",
+    "min" : 0,
+	"max" : 100,
+    "address" : "/e",
+    "isVertical" : true,
+    "isXFader" : false,
+	"mode":"contact",
+	"isLocal": true,
+	"onvaluechange" : "PhoneGap.exec('OSCManager.send', this.address, 'f', Math.round(this.value*100)/100)",
+	
+},
+
+{
+    "name": "debugSliderLabel",
+    "type": "Label",
+	"bounds": [0, .85, .1, .1],
+    "color": "#F010C3",
+	"address" : "/d",
+    "value": "debug",
+},
+
+
+//Select preset
+{
+    "name" : "preset",
+    "type" : "MultiButton",
+    "bounds": [0,0.15,.1,.5],
+	"rows" : 5, 
+	"columns" : 1,
+	"shouldLabel" : true,
+	"color": "#555555",
+	"stroke": "#F8DC07",
+	"startingValue": 1,
+    "min": 0,
+    "max": 1,
+    "mode": "contact",
+	"isLocal":true,
+    "ontouchstart": "oscManager.sendOSC('/pp', 'f', this.childID+1)",
+},
+
+
+
+//save preset
+{
+    "name": "savePreset",
+    "type": "Button",
+	"bounds": [.15, .38, .1, .1],
+	"isLocal": true,
+	"stroke": "#aaa",
+	"label": "Save",
+	"backgroundColor" : "#5E9061",
+	"mode":"contact",
+	"ontouchstart": "PhoneGap.exec('OSCManager.send', '/s', 'f', 1); ",
+},
+
+//load preset
+{
+    "name": "loadPreset",
+    "type": "Button",
+	"bounds": [.15, .53, .1, .1],
+	"isLocal": true,
+	"stroke": "#aaa",
+	"label": "Load",
+	"backgroundColor" : "#E8C671",
+	"mode":"contact",
+	"ontouchstart": "PhoneGap.exec('OSCManager.send', '/l', 'f', 1); ",
+},
+
+//top
+{
+    "name": "topLabel",
+    "type": "Label",
+	"bounds": [.4, .25, .1, .1],
+    "color": "#aaa",
+    "value": "Top",
+	"align": "center",
+	"backgroundColor": "#333",
+},
+{
+    "name": "top0Label",
+    "type": "Button",
+	"bounds": [.4, .15, .1, .1],
+	"isLocal": true,
+	"mode": "toggle",
+	"min": 0,
+	"max": 1,
+	"ontouchstart": "if(this.value == this.max) { PhoneGap.exec('OSCManager.send', '/0', 'f', this.max); } else { PhoneGap.exec('OSCManager.send', '/0', 'f', this.min); }",
+	"stroke": "#aaa",
+	"color": "#aaa",
+},
+{
+    "name": "top1Label",
+    "type": "Button",
+	"bounds": [.4, .35, .1, .1],
+	"isLocal": true,
+	"mode": "toggle",
+	"min": 0,
+	"max": 1,
+	"ontouchstart": "if(this.value == this.max) { PhoneGap.exec('OSCManager.send', '/1', 'f', this.max); } else { PhoneGap.exec('OSCManager.send', '/1', 'f', this.min); }",
+	"stroke": "#aaa",
+	"color": "#aaa",
+},
+{
+    "name": "top2Label",
+    "type": "Button",
+	"bounds": [.3, .25, .1, .1],
+	"isLocal": true,
+	"mode": "toggle",
+	"min": 0,
+	"max": 1,
+	"ontouchstart": "if(this.value == this.max) { PhoneGap.exec('OSCManager.send', '/2', 'f', this.max); } else { PhoneGap.exec('OSCManager.send', '/2', 'f', this.min); }",
+	"stroke": "#aaa",
+	"color": "#aaa",
+},
+{
+    "name": "top3Label",
+    "type": "Button",
+	"bounds": [.5, .25, .1, .1],
+	"isLocal": true,
+	"mode": "toggle",
+	"min": 0,
+	"max": 1,
+	"ontouchstart": "if(this.value == this.max) { PhoneGap.exec('OSCManager.send', '/3', 'f', this.max); } else { PhoneGap.exec('OSCManager.send', '/3', 'f', this.min); }",
+	"stroke": "#aaa",
+	"color": "#aaa",
+},
+
+//bottom
+{
+    "name": "bottomLabel",
+    "type": "Label",
+	"bounds": [.4, .65, .1, .1],
+    "color": "#aaa",
+    "value": "Bottom",
+	"align": "center",
+	"backgroundColor": "#333",
+},
+{
+    "name": "bottom4Label",
+    "type": "Button",
+	"bounds": [.4, .55, .1, .1],
+	"isLocal": true,
+	"mode": "toggle",
+	"min": 0,
+	"max": 1,
+	"ontouchstart": "if(this.value == this.max) { PhoneGap.exec('OSCManager.send', '/4', 'f', this.max); } else { PhoneGap.exec('OSCManager.send', '/4', 'f', this.min); }",
+	"stroke": "#aaa",
+	"color": "#aaa",
+},
+{
+    "name": "bottom5Label",
+    "type": "Button",
+	"bounds": [.4, .75, .1, .1],
+	"isLocal": true,
+	"mode": "toggle",
+	"min": 0,
+	"max": 1,
+	"ontouchstart": "if(this.value == this.max) { PhoneGap.exec('OSCManager.send', '/5', 'f', this.max); } else { PhoneGap.exec('OSCManager.send', '/5', 'f', this.min); }",
+	"stroke": "#aaa",
+	"color": "#aaa",
+},
+{
+    "name": "bottom6Label",
+    "type": "Button",
+	"bounds": [.3, .65, .1, .1],
+	"isLocal": true,
+	"mode": "toggle",
+	"min": 0,
+	"max": 1,
+	"ontouchstart": "if(this.value == this.max) { PhoneGap.exec('OSCManager.send', '/6', 'f', this.max); } else { PhoneGap.exec('OSCManager.send', '/6', 'f', this.min); }",
+	"stroke": "#aaa",
+	"color": "#aaa",
+},
+{
+    "name": "bottom7Label",
+    "type": "Button",
+	"bounds": [.5, .65, .1, .1],
+	"isLocal": true,
+	"mode": "toggle",
+	"min": 0,
+	"max": 1,
+	"ontouchstart": "if(this.value == this.max) { PhoneGap.exec('OSCManager.send', '/7', 'f', this.max); } else { PhoneGap.exec('OSCManager.send', '/7', 'f', this.min); }",
+	"stroke": "#aaa",
+	"color": "#aaa",
+},
+
+//slider
+{
+    "name" : "redSlider",
+    "type" : "Slider",
+	"bounds": [.66, .15, .1, .7],
+	"startingValue": 0,
+    "color": "#FF0000",
+    "stroke": "#FF0000",
+    "min" : 0,
+	"max" : 255,
+    "address" : "/r",
+    "isVertical" : true,
+    "isXFader" : false,
+	"mode":"contact",
+	"isLocal": true,
+	"onvaluechange" : "redSliderLabel.changeValue(Math.round(this.value)); PhoneGap.exec('OSCManager.send', this.address, 'f', Math.round(this.value)) ",	
+},
+{
+    "name": "redSliderLabel",
+    "type": "Label",
+	"bounds": [.66, .85, .1, .1],
+    "color": "#FF0000",
+    "value": "0",
+},
+{
+    "name" : "greenSlider",
+    "type" : "Slider",
+	"bounds": [.78, .15, .1, .70],
+	"startingValue": 0,
+    "color": "#00FF00",
+    "stroke": "#00FF00",
+    "min" : 0,
+	"max" : 255,
+    "address" : "/g",
+    "isVertical" : true,
+    "isXFader" : false,
+	"mode":"contact",
+	"isLocal": true,
+    "onvaluechange" : "greenSliderLabel.changeValue(Math.round(this.value)); PhoneGap.exec('OSCManager.send', this.address, 'f', Math.round(this.value)) ",	
+},
+{
+    "name": "greenSliderLabel",
+    "type": "Label",
+	"bounds": [.78, .85, .1, .1],
+    "color": "#00FF00",
+    "value": "0",
+},
+{
+    "name" : "blueSlider",
+    "type" : "Slider",
+	"bounds": [.9, .15, .1, .70],
+	"startingValue": 0,
+    "color": "#0000FF",
+    "stroke": "#0000FF",
+    "min" : 0,
+	"max" : 255,
+    "address" : "/b",
+    "isVertical" : true,
+    "isXFader" : false,
+	"mode":"contact",
+	"isLocal": true,
+	"onvaluechange" : "blueSliderLabel.changeValue(Math.round(this.value)); PhoneGap.exec('OSCManager.send', this.address, 'f', Math.round(this.value)) ",	
+},
+{
+    "name": "blueSliderLabel",
+    "type": "Label",
+	"bounds": [.9, .85, .1, .1],
+    "color": "#0000FF",
+    "value": "0",
+},
+
+//menu
+{
+	"name": "showButton",
+	"type": "Button",
+	"bounds": [.0, 0, .15, .1],
+	"isLocal": true,
+	"mode":"contact",
+	"ontouchstart":"control.changePage(1);",
+	"stroke": "#aaa",
+	"label": "Show",
+},
+{
+	"name": "refresh",
+	"type": "Button",
+	"bounds": [.15, 0, .15, .1],
+	"isLocal": true,
+	"mode": "contact",
+	"ontouchstart": "interfaceManager.refreshInterface()",
+	"stroke": "#aaa",
+	"label": "Refresh"
+},
+{
+	"name": "menu",
+	"type": "Button",
+	"bounds": [.30, 0, .15, .1],
+	"isLocal": true,
+	"mode": "toggle",
+	"ontouchstart": "if(this.value == this.max) { control.showToolbar(); } else { control.hideToolbar(); }",
+	"stroke": "#aaa",
+	"label": "Menu"
+}
+
+],
+
+[
+
+{
+	"name": "setButton",
+	"type": "Button",
+	"bounds": [.0, 0, .15, .1],
+	"mode": "contact",
+	"stroke": "#aaa",
+	"isLocal": true,
+	"ontouchstart": "control.changePage(0);",
+	"label": "Set",
+},
+{
+	"name": "refresh",
+	"type": "Button",
+	"bounds": [.15, 0, .15, .1],
+	"isLocal": true,
+	"mode": "contact",
+	"ontouchstart": "interfaceManager.refreshInterface()",
+	"stroke": "#aaa",
+	"label": "Refresh"
+},
+{
+	"name": "menu",
+	"type": "Button",
+	"bounds": [.30, 0, .15, .1],
+	"isLocal": true,
+	"mode": "toggle",
+	"ontouchstart": "if(this.value == this.max) { control.showToolbar(); } else { control.hideToolbar(); }",
+	"stroke": "#aaa",
+	"label": "Menu"
+},
+
+{
+    "name" : "timeSlider",
+    "type" : "Slider",
+	"bounds": [.2, .35, .6, .15],
+	"startingValue": 0,
+    "color": "#FF0000",
+    "stroke": "#FF0000",
+    "min" : -1,
+	"max" : 1,
+    "address" : "/i",
+    "isVertical" : false,
+    "isXFader" : true,
+	"mode":"contact",
+	"isLocal": true,
+    "onvaluechange" : "timeLabel.changeValue(Math.round(this.value*100)/100); PhoneGap.exec('OSCManager.send', this.address, 'f', Math.round(this.value*100)/100) ",	
+	
+},
+
+{
+    "name": "timeLabel",
+    "type": "Label",
+	"bounds": [.45, .25, .1, .1],
+    "color": "#FF0000",
+	"address" : "/j",
+    "value": "0"
+},
+
+
+{
+    "name": "Stop",
+    "type": "Button",
+	"bounds": [.37, .55, .1, .1],
+	"isLocal": true,
+	"stroke": "#FF0000",
+	"backgroundColor" : "#FF0000",
+	"mode":"contact",
+	"ontouchstart": "PhoneGap.exec('OSCManager.send', '/t', 'f', 1); ",
+},
+
+{
+    "name": "Play",
+    "type": "Button",
+	"bounds": [.53, .55, .1, .1],
+	"isLocal": true,
+	"stroke": "#00FF00",
+	"backgroundColor" : "#00FF00",
+	"mode":"contact",
+	"onvaluechange" : "PhoneGap.exec('OSCManager.send', '/t', 'f', 2)",
+},
+
+
+
+{
+    "name" : "faderSlider",
+    "type" : "Slider",
+	"bounds": [.1, .75, .8, .15],
+	"startingValue": 127,
+    "color": "#F8FE42",
+    "stroke": "#F8FE42",
+    "min" : 0,
+	"max" : 255,
+    "address" : "/c",
+    "isVertical" : false,
+    "isXFader" : true,
+	"mode":"contact",
+	"isLocal": true,
+	"onvaluechange" : "faderLabel.changeValue(Math.round(this.value*100)/100); PhoneGap.exec('OSCManager.send', this.address, 'f',Math.round(this.value*100)/100) ",	
+	
+},
+
+{
+    "name": "faderLabel",
+    "type": "Label",
+	"bounds": [.45, .65, .1, .1],
+    "color": "#F8FE42",
+	"address" : "/c",
+    "value": "127",
+},
+
+{
+    "name" : "presetA",
+    "type" : "MultiButton",
+    "bounds": [0,.15,.1,.5],
+	"rows" : 5, 
+	"columns" : 1,
+	"shouldLabel" : true,
+	"color": "#fff",
+	"stroke": "#fff",
+	"startingValue": 1,
+    "mode": "contact",
+	"isLocal":true,
+    "ontouchstart": "oscManager.sendOSC('/pA', 'f', this.childID+1)",
+},
+
+
+
+{
+    "name" : "presetB",
+    "type" : "MultiButton",
+    "bounds": [.89,.15,.1,.5],
+	"rows" : 5, 
+	"columns" : 1,
+	"shouldLabel" : true,
+	"color": "#fff",
+	"stroke": "#fff",
+	"startingValue": 1,
+    "mode": "contact",
+	"isLocal":true,
+    "ontouchstart": "oscManager.sendOSC('/pB', 'f', this.childID+1)",
+},
+
+],
+
+];
